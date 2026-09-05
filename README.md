@@ -53,6 +53,27 @@ You'll find 2 folders, one named `frontend` and one named `backend`, where each 
 **⚠️ NOTE**
 Once you begin work on Continuous Deployment, you'll need to first setup the AWS and Kubernetes environment. Follow [these instructions ](#setting-up-continuous-deployment-environment) only when you're ready to start testing your deployments.
 
+
+## Deployed Applications
+
+The applications are deployed to Amazon EKS and can be accessed using the following public URLs.
+
+### Frontend
+
+http://a16fdd777f02e4e6eb2f32da0f4117e7-88071105.us-east-1.elb.amazonaws.com
+
+The frontend displays the available movies and retrieves the movie list from the deployed backend API.
+
+### Backend API
+
+http://a8d546f3b0c784703803df86688c33a8-2021092818.us-east-1.elb.amazonaws.com/movies
+
+The `/movies` endpoint returns the available movie list successfully.
+
+### Deployment Verification
+
+Both applications have been successfully deployed to Amazon EKS and verified end-to-end. The frontend successfully communicates with the backend API and displays the returned movie list.
+
 ## One-time setup instructions
 
 The project assumes you'll be working in the Udacity workspace where all the necessary system dependencies are installed and setup, ready for use.
