@@ -8,6 +8,9 @@ on:
       - "starter/backend/**"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   lint:
     name: Backend Lint
@@ -82,3 +85,11 @@ jobs:
       - name: Regenerate Pipenv lock
         working-directory: starter/backend
         run: pipenv lock
+      
+      - name: Commit updated lock file
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add starter/backend/Pipfile.lock
+          git diff --cached --quiet || git commit -m "Update backend Pipenv lock"
+          git push
